@@ -1,0 +1,46 @@
+name: Suggest a channel
+description: Suggest a YouTube channel for the shared list "Made with AI"
+title: "Suggest: "
+labels: ["suggestion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **This issue is public.** Do not write personal data in it (e-mail, phone, real name, addresses).
+        A channel is added only with evidence. Read the [list policy](https://github.com/Ai-tech22/antislop-lists/blob/main/COMMUNITY-LIST-POLICY.md) first.
+  - type: input
+    id: channel_id
+    attributes:
+      label: Channel ID
+      description: Starts with UC and is 24 characters long. The extension fills it in.
+    validations:
+      required: true
+  - type: input
+    id: channel_name
+    attributes:
+      label: Channel name
+    validations:
+      required: false
+  - type: input
+    id: handle
+    attributes:
+      label: Channel handle
+      description: For example @name
+    validations:
+      required: false
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: |
+        Links to videos of this channel that carry YouTube's own "Made with AI" label,
+        or the author's own public statement that the content is made with AI.
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: I understand that this issue is public and that listing is the moderators' opinion, decided by the project owner.
+          required: true

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "version": 1,
+  "resetEpoch": 0,
+  "minExtensionVersion": "0.9.0",
+  "killSwitch": { "youtube": false, "labels": false, "probe": false },
+  "label": {
+    "aiHeaders": ["Made with AI"],
+    "cameraHeaders": ["Captured with a camera"],
+    "shortsDisclosure": []
+  }
+}

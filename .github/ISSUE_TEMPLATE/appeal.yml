@@ -1,0 +1,54 @@
+name: Appeal a listing
+description: Ask to remove a channel from the shared list "Made with AI"
+title: "Appeal: "
+labels: ["appeal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **This issue is public.** Do not write personal data in it (e-mail, phone, real name, addresses).
+        A channel is removed after a justified appeal or at the author's request.
+        Read the [list policy](https://github.com/Ai-tech22/antislop-lists/blob/main/COMMUNITY-LIST-POLICY.md) first.
+  - type: input
+    id: channel_id
+    attributes:
+      label: Channel ID
+      description: Starts with UC and is 24 characters long. The extension fills it in.
+    validations:
+      required: true
+  - type: input
+    id: channel_name
+    attributes:
+      label: Channel name
+    validations:
+      required: false
+  - type: input
+    id: handle
+    attributes:
+      label: Channel handle
+      description: For example @name
+    validations:
+      required: false
+  - type: input
+    id: video_id
+    attributes:
+      label: Video ID
+      description: The video on which you used the button, if any. The extension fills it in.
+    validations:
+      required: false
+  - type: textarea
+    id: reason
+    attributes:
+      label: Why the listing is wrong
+      description: Explain, and add links or the author's statement if you have them.
+    validations:
+      required: true
+  - type: dropdown
+    id: relation
+    attributes:
+      label: Who are you?
+      options:
+        - The channel's author or an authorized representative
+        - A viewer
+    validations:
+      required: true

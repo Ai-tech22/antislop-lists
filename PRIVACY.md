@@ -1,6 +1,6 @@
 # Antislop Privacy Policy
 
-_Revision of 2026-11-11 · applies to version 0.9 (beta) and later · [Русская версия](PRIVACY.ru.md)_
+_Revision of 2026-11-12 · applies to version 0.9 (beta) and later · [Русская версия](PRIVACY.ru.md)_
 
 Antislop is a browser extension that hides AI-generated videos on YouTube and
 flags suspicious ones. We try to know as little about you as possible: **the
@@ -21,7 +21,7 @@ In the browser's storage (not on our servers):
 | Data | Kept for |
 |---|---|
 | Your channel lists (hide / always show / warn, etc.) and settings | until you delete them |
-| AI-label check results per video and a per-channel summary | up to 30 days (at most 5,000 entries) |
+| AI-label check results per video and a per-channel summary | up to 30 days (about 5,000 entries) |
 | The "Why hidden" journal (video, channel, reason, time) | up to 30 days (at most 5,000 entries) |
 | Simple statistics (hidden today / this week / in total) | until you delete them |
 | Diagnostics — error codes and times only, no videos or channels | last 50 events |
@@ -39,12 +39,15 @@ Changes to your lists are saved.
 
 ## 3. Network requests
 
-The extension contacts only these services:
+The extension contacts only YouTube, GitHub and jsDelivr:
 
 1. **YouTube (`www.youtube.com`) — background AI-label check.** To hide AI
    videos before you open them, the extension asks YouTube about videos in
-   your feed. A request carries only the video ID, **without cookies** — that
-   is, without your YouTube account. At most one request every 2 seconds and
+   your feed. A request carries the video ID and the technical parameters
+   YouTube expects from its own web page: the web client version
+   (`clientVersion`) and, when known, the YouTube interface region (`gl`); the
+   other parameters are constant. The request carries **no cookies** — that is,
+   it is sent without your YouTube account. At most one request every 2 seconds and
    300 per day. You can turn this off in the settings.
 2. **GitHub (`raw.githubusercontent.com`) and, if it is unavailable, jsDelivr
    (`cdn.jsdelivr.net`) — shared files.** About once a day the extension
@@ -56,9 +59,11 @@ As with visiting any website, these services see technical connection data —
 your IP address and browser details (User-Agent) — and handle it under their
 own privacy policies.
 
-**"Suggest a channel" and "Appeal".** These buttons open a GitHub form
-pre-filled with the channel ID, its name and (for "Appeal") the video ID.
-Nothing is published until you submit the form yourself. A submitted form
+**"Suggest a channel" and "Appeal".** These buttons open a form on github.com
+(repository `Ai-tech22/antislop-lists`), pre-filled with the channel ID, its name, its handle (if known) and (for "Appeal") the video ID.
+GitHub receives these details in the page address **as soon as the page
+opens** — together with your GitHub account if you are signed in. Nothing is
+published until you submit the form yourself. A submitted form
 (issue) is **public**, requires a GitHub account and is governed by GitHub's
 privacy policy.
 
@@ -86,6 +91,11 @@ Store User Data Policy, including the Limited Use requirements.
 - Settings → "Import & export" → **"Delete all my data"** removes lists,
   settings, the journal, statistics and check results (lists and settings
   also on your other synced devices).
+- "Delete all my data" **does not remove** the copy of the shared channel
+  list and remote configuration (public files, the same for everyone; without
+  them the emergency switches would stop working) or the background check's
+  service state — the pause after a YouTube refusal and the daily request
+  counter, and the per-tab counts of hidden items behind the toolbar badge (no videos or channels).
 - The journal can be cleared separately on the "Journal" tab.
 - Uninstalling the extension makes the browser delete all its local data.
 - An export file is created only on your command and stays where you saved it.
@@ -103,4 +113,4 @@ will tell you in advance and ask for consent where required.
 
 ## 9. Contact
 
-Privacy questions: open an issue at <https://github.com/Ai-tech22/antislop-lists/issues> (a dedicated e-mail address will be added here).
+Privacy questions: use the **"Question / privacy"** issue form in the public repository — <https://github.com/Ai-tech22/antislop-lists/issues/new?template=question.yml>. An issue is public: do not put personal data in it. Until the project has an e-mail address, issues are the only contact channel; the address will be added here when one exists.

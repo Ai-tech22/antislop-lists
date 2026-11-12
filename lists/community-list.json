@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "version": 1,
+  "resetEpoch": 0,
+  "updatedAt": "2026-11-11",
+  "categories": {
+    "made-with-ai": {
+      "name": { "en": "Made with AI", "ru": "Сделано с помощью ИИ" },
+      "channels": []
+    }
+  }
+}

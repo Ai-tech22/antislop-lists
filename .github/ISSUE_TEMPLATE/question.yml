@@ -1,0 +1,16 @@
+name: Question / privacy
+description: Ask a question about the extension, the lists or privacy
+title: "Question: "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **This issue is public.** Do not write personal data in it (e-mail, phone, real name, addresses).
+        Until the project has an e-mail address, issues are the only way to contact the project.
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+    validations:
+      required: true
